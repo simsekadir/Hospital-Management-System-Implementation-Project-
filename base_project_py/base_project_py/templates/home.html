@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Hospital Management System!</h1>
+    <p class="lead">Log in to access the system. If you don't have an account, please sign up.</p>
+    <p class="my-4">
+        <img src="{% static 'images/hospital_image.png' %}" class="img-fluid" alt="Hospital Image">
+    </p>
+    <a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a>
+    <a class="btn btn-secondary btn-lg" href="{% url 'login' %}" role="button">Log In</a>
+</div>
+
+{% if is_admin %}
+<div class="admin-link text-center">
+    <a class="btn btn-warning btn-lg" href="{% url 'admin:index' %}" role="button">Go to Admin Page</a>
+</div>
+{% endif %}
+{% endblock %}
